@@ -18,7 +18,7 @@ export const SidebarLinks = ({ links, isExpanded }: SidebarLinksProps) => {
           key={link.id}
           size={isExpanded ? "default" : "icon"}
           variant={pathname === link.href ? "default" : "ghost"}
-          className={cn("gap-3 transition-transform", {
+          className={cn("gap-3", {
             "justify-start": isExpanded,
           })}
           asChild

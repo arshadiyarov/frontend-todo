@@ -1,16 +1,16 @@
 import { HTMLAttributes } from "react";
 import { cn } from "../../lib/utils/cn";
+import { CardSizeType } from "./card";
+import { cardDefaultStyles, cardSizes } from "./card.config";
 
-export const Card = ({
-  className,
-  ...props
-}: HTMLAttributes<HTMLDivElement>) => {
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
+  size?: CardSizeType;
+}
+
+export const Card = ({ size = "default", className, ...props }: CardProps) => {
   return (
     <div
-      className={cn(
-        "rounded-xl border bg-white text-neutral-800 shadow-sm py-5 px-6",
-        className
-      )}
+      className={cn(cardDefaultStyles, cardSizes[size], className)}
       {...props}
     />
   );

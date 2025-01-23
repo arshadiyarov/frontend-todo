@@ -13,7 +13,7 @@ export const SidebarHeader = ({
   handleToggle,
 }: SidebarHeaderProps) => {
   return (
-    <div className="border-b py-5 px-4 flex items-center justify-between">
+    <div className="flex items-center justify-between">
       {isExpanded && (
         <Link to="/" className="text-xl uppercase">
           Armat

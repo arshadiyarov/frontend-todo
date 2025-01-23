@@ -3,5 +3,6 @@ export type ButtonVariantsType =
   | "secondary"
   | "ghost"
   | "outline"
-  | "link";
+  | "link"
+  | "destructive";
 export type ButtonSizeType = "default" | "sm" | "lg" | "icon";

@@ -2,14 +2,15 @@ import { ButtonSizeType, ButtonVariantsType } from "./button";
 
 export const buttonVariants: Record<ButtonVariantsType, string> = {
   default:
-    "bg-blue-600 text-neutral-50 shadow hover:bg-blue-600/90 active:bg-blue-600/80",
-  outline:
-    "border bg-white shadow-sm hover:bg-neutral-100 hover:text-neutral-800",
+    "bg-primary text-typo-foreground shadow hover:bg-primary/90 active:bg-primary/80",
+  outline: "border bg-white shadow-sm hover:bg-neutral-100 hover:text-typo",
   secondary:
-    "bg-cyan-500 text-neutral-800 shadow-sm hover:bg-cyan-500/80 active:bg-cyan-500/70",
+    "bg-secondary text-typo shadow-sm hover:bg-secondary/90 active:bg-secondary/80",
   ghost:
-    "hover:bg-neutral-100 active:bg-neutral-200 hover:text-neutral-800 focus-visible:ring-neutral-00",
-  link: "text-blue-600 underline-offset-4 hover:underline",
+    "hover:bg-neutral-100 active:bg-neutral-200 hover:text-typo focus-visible:ring-typo",
+  link: "text-primary underline-offset-4 hover:underline",
+  destructive:
+    "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90 active:bg-destructive/80",
 };
 
 export const buttonSizes: Record<ButtonSizeType, string> = {
