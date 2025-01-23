@@ -11,7 +11,7 @@ export const Sidebar = () => {
 
   return (
     <aside
-      className={cn("border-r h-dvh w-16 transition-all", {
+      className={cn("border-r h-dvh w-16 transition-all shadow-sm", {
         "w-80": isExpanded,
       })}
     >

@@ -5,7 +5,7 @@ import { ConditionalLayout } from "./ConditionalLayout.tsx";
 import { MainPage } from "./app/MainPage.tsx";
 import { NotFound } from "./app/NotFound.tsx";
 import { TasksPage } from "./app/tasks/TasksPage.tsx";
-import "./index.css";
+import "./index.scss";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

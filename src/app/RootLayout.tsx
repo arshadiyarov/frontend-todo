@@ -5,7 +5,7 @@ export const RootLayout = ({ children }: PropsWithChildren) => {
   return (
     <div className="flex">
       <Sidebar />
-      <main>{children}</main>
+      <main className="flex-grow">{children}</main>
     </div>
   );
 };
