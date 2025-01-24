@@ -9,27 +9,67 @@ import { TaskEntity } from "../../entities/task/model/task";
 const mockTasks: TaskEntity[] = [
   {
     id: "1",
-    isCompleted: true,
-    title: "Make template for tasks page",
-    dueDate: "",
-    createdAt: "",
-    updatedAt: "",
+    isCompleted: false,
+    title: "Login page",
+    dueDate: new Date(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
   {
     id: "2",
-    isCompleted: true,
-    title: "Make template for main page",
-    dueDate: "",
-    createdAt: "",
-    updatedAt: "",
+    isCompleted: false,
+    title: "Register page",
+    dueDate: new Date(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
   {
     id: "3",
     isCompleted: false,
-    title: "Write api using Go",
-    dueDate: "",
-    createdAt: "",
-    updatedAt: "",
+    title: "Reset password page",
+    dueDate: new Date(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "4",
+    isCompleted: false,
+    title: "Verification page",
+    dueDate: new Date(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "4",
+    isCompleted: false,
+    title: "Fixed header",
+    dueDate: new Date(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "4",
+    isCompleted: false,
+    title: "Fixed sidebar",
+    dueDate: new Date(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "5",
+    isCompleted: false,
+    title: "History page",
+    dueDate: new Date(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "6",
+    isCompleted: false,
+    title: "Pomodoro page",
+    dueDate: new Date(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
 ];
 
@@ -48,7 +88,7 @@ export const TasksPage = () => {
         </Button>
         <Button variant="outline">
           <Filter />
-          Filters
+          Filter
         </Button>
       </div>
       <div className="flex flex-col gap-3">

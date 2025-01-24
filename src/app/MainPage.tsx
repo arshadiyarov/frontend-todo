@@ -11,10 +11,15 @@ import { getGreeting } from "../shared/lib/utils/getGreeting";
 import { Card } from "../shared/ui/card/Card";
 import { Cont } from "../shared/ui/Cont";
 import { cn } from "../shared/lib/utils/cn";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Button } from "../shared/ui/button/Button";
 import { Link } from "react-router";
 import { PageHeader } from "../shared/ui/PageHeader";
+import { Divide } from "../shared/ui/divide/Divide";
+import { InfoCard } from "../entities/info/ui/InfoCard";
+import { mockHistory } from "../shared/temp/mockHistory";
+import { HistoryItem } from "../entities/history/ui/HistoryItem";
+import { BgCircle } from "../shared/ui/BgCircle";
 // TODO: Divide into widgets
 export const MainPage = () => {
   // TODO: Get tasks from api, and change bar width calculation logic
@@ -34,8 +39,8 @@ export const MainPage = () => {
         subTitle="Here's what's happening with your tasks today."
       />
 
-      <div className="flex flex-col md:flex-row items-stretch justify-between gap-5">
-        <Card className="w-full flex flex-col justify-between gap-2">
+      <div className="flex flex-col lg:flex-row items-stretch justify-between gap-5">
+        <Card className="w-full flex flex-col justify-between gap-2 hover:scale-[102%] transition-all">
           <div className="flex items-center justify-between text-sm font-medium">
             <h3>Tasks Completed</h3>
             <CircleCheck size={16} className="text-typo-secondary" />
@@ -63,18 +68,21 @@ export const MainPage = () => {
           </div>
         </Card>
 
-        <Card className="w-full flex flex-col justify-between gap-2">
-          <div className="flex items-center justify-between text-sm font-medium">
-            <h3>Current Streak</h3>
-            <Trophy size={16} className="text-typo-secondary" />
-          </div>
-          <div className="text-2xl font-semibold">5 days</div>
-          <div className="text-xs text-typo-secondary">
-            Keep it up! You're doing great
-          </div>
-        </Card>
+        <InfoCard
+          title="Current Streak"
+          body="5 days"
+          footer="Keep it up! You're doing great"
+          icon={<Trophy size={16} className="text-typo-secondary" />}
+        />
 
-        <Card className="w-full flex flex-col justify-between gap-2">
+        <InfoCard
+          title="Current Streak"
+          body="5 days"
+          footer="Keep it up! You're doing great"
+          icon={<Trophy size={16} className="text-typo-secondary" />}
+        />
+
+        <Card className="w-full flex flex-col justify-between gap-2 hover:scale-[102%] transition-all">
           <div className="flex items-center justify-between text-sm font-medium">
             <h3>Priority Tasks</h3>
             <Star size={16} className="text-typo-secondary" />
@@ -99,9 +107,11 @@ export const MainPage = () => {
               <Plus />
               Create new task
             </Button>
-            <Button variant="outline" className="justify-start">
-              <ListTodo />
-              View all tasks
+            <Button variant="outline" className="justify-start" asChild>
+              <Link to="/tasks">
+                <ListTodo />
+                View all tasks
+              </Link>
             </Button>
           </div>
         </Card>
@@ -120,20 +130,17 @@ export const MainPage = () => {
               className="w-full flex items-center justify-between gap-3 p-3 h-12 group"
             >
               <div className="flex items-center gap-3">
-                <div
-                  className={cn(
-                    "rounded-full p-2 transition-colors bg-gray-100",
-                    {
-                      "bg-green-100": true,
-                    }
-                  )}
+                <BgCircle
+                  className={cn("bg-gray-100", {
+                    "bg-green-100": true,
+                  })}
                 >
                   <CircleCheck
                     className={cn("transition-colors text-gray-400", {
                       "text-green-500": true,
                     })}
                   />
-                </div>
+                </BgCircle>
                 <div className="flex flex-col items-start">
                   <div className="text-sm">Create your first task</div>
                   <div className="text-sm text-typo-secondary">
@@ -144,25 +151,24 @@ export const MainPage = () => {
               <ArrowRight className="group-hover:translate-x-1 transition-transform" />
             </Button>
 
+            <Divide />
+
             <Button
               variant="ghost"
               className="w-full flex items-center justify-between gap-3 p-3 h-12 group"
             >
               <div className="flex items-center gap-3">
-                <div
-                  className={cn(
-                    "rounded-full p-2 transition-colors bg-gray-100",
-                    {
-                      "bg-green-100": false,
-                    }
-                  )}
+                <BgCircle
+                  className={cn("bg-gray-100", {
+                    "bg-green-100": false,
+                  })}
                 >
                   <CircleCheck
-                    className={cn("transition-colors text-gray-400", {
+                    className={cn("text-gray-400", {
                       "text-green-500": false,
                     })}
                   />
-                </div>
+                </BgCircle>
                 <div className="flex flex-col items-start">
                   <div className="text-sm">Set up notifications</div>
                   <div className="text-sm text-typo-secondary">
@@ -173,25 +179,24 @@ export const MainPage = () => {
               <ArrowRight className="group-hover:translate-x-1 transition-transform" />
             </Button>
 
+            <Divide />
+
             <Button
               variant="ghost"
               className="w-full flex items-center justify-between gap-3 p-3 h-12 group"
             >
               <div className="flex items-center gap-3">
-                <div
-                  className={cn(
-                    "rounded-full p-2 transition-colors bg-gray-100",
-                    {
-                      "bg-green-100": false,
-                    }
-                  )}
+                <BgCircle
+                  className={cn("transition-colors bg-gray-100", {
+                    "bg-green-100": false,
+                  })}
                 >
                   <CircleCheck
                     className={cn("transition-colors text-gray-400", {
                       "text-green-500": false,
                     })}
                   />
-                </div>
+                </BgCircle>
                 <div className="flex flex-col items-start">
                   <div className="text-sm">Invite team members</div>
                   <div className="text-sm text-typo-secondary">
@@ -222,44 +227,12 @@ export const MainPage = () => {
         </div>
 
         <div className="flex flex-col gap-3">
-          <div className="flex items-center justify-between gap-3">
-            <div className="flex items-center gap-3">
-              <div className="bg-typo size-2 rounded-full" />
-              <div className="flex flex-col items-start">
-                <div className="text-sm">Completed task</div>
-                <div className="text-sm text-typo-secondary">
-                  Update onboarding workflow templates
-                </div>
-              </div>
-            </div>
-            <div className="text-sm text-typo-secondary">2 hours ago</div>
-          </div>
-
-          <div className="flex items-center justify-between gap-3">
-            <div className="flex items-center gap-3">
-              <div className="bg-typo size-2 rounded-full" />
-              <div className="flex flex-col items-start">
-                <div className="text-sm">Added new task</div>
-                <div className="text-sm text-typo-secondary">
-                  Finish user onboarding
-                </div>
-              </div>
-            </div>
-            <div className="text-sm text-typo-secondary">5 hours ago</div>
-          </div>
-
-          <div className="flex items-center justify-between gap-3">
-            <div className="flex items-center gap-3">
-              <div className="bg-typo size-2 rounded-full" />
-              <div className="flex flex-col items-start">
-                <div className="text-sm">Updated task</div>
-                <div className="text-sm text-typo-secondary">
-                  Hold to reorder on mobile
-                </div>
-              </div>
-            </div>
-            <div className="text-sm text-typo-secondary">1 day ago</div>
-          </div>
+          {mockHistory.map((item, index) => (
+            <Fragment key={item.id}>
+              <HistoryItem {...item} />
+              {mockHistory.length !== index + 1 && <Divide />}
+            </Fragment>
+          ))}
         </div>
       </Card>
     </Cont>

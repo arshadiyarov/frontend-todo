@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+input,
+textarea {
+  @apply outline-none;
+}
+
 body {
   @apply bg-white text-typo;
 }

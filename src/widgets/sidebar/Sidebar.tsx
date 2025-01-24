@@ -6,17 +6,17 @@ import { cn } from "../../shared/lib/utils/cn";
 
 export const Sidebar = () => {
   const [isExpanded, setIsExpanded] = useState<boolean>(
-    localStorage.getItem("sidebar_expanded") === "true"
+    localStorage.getItem("SIDEBAR_EXPANDED") === "true"
   );
 
   const handleToggle = () => {
     setIsExpanded((prevState) => !prevState);
-    localStorage.setItem("sidebar_expanded", String(!isExpanded));
+    localStorage.setItem("SIDEBAR_EXPANDED", String(!isExpanded));
   };
 
   useEffect(() => {
-    localStorage.setItem("sidebar_expanded", "true");
-    const expanded = localStorage.getItem("sidebar_expanded") === "true";
+    const expanded = localStorage.getItem("SIDEBAR_EXPANDED") === "true";
+    localStorage.setItem("SIDEBAR_EXPANDED", String(expanded));
 
     setIsExpanded(expanded);
   }, []);
@@ -24,9 +24,10 @@ export const Sidebar = () => {
   return (
     <aside
       className={cn(
-        "border-r h-dvh w-[3.75rem] transition-all shadow-sm overflow-hidden",
+        "border-r h-screen overflow-hidden transition-all shadow-sm",
         {
           "w-80": isExpanded,
+          " w-[3.75rem]": !isExpanded,
         }
       )}
     >
