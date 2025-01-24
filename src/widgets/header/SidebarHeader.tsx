@@ -15,7 +15,7 @@ export const SidebarHeader = () => {
       })}
     >
       {isExpanded && (
-        <Link to="/" className="text-xl uppercase">
+        <Link to="/" className="text-xl font-bold uppercase">
           Armat
         </Link>
       )}

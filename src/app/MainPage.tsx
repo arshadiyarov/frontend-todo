@@ -10,7 +10,7 @@ export const MainPage = () => {
   return (
     <Cont className="py-10 space-y-10">
       <PageHeader
-        title={`${getGreeting()}, {username}!`}
+        title={`${getGreeting()}, Armat!`}
         subTitle="Here's what's happening with your tasks today."
       />
 
