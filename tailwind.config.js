@@ -8,10 +8,15 @@ export default {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-10px)" },
         },
+        ripple: {
+          "0%": { transform: "scale(0)", opacity: "1" },
+          "100%": { transform: "scale(4)", opacity: "0" },
+        },
       },
       animation: {
         float: "float 4s ease-in-out infinite",
         "float-slow": "float 5s ease-in-out infinite",
+        ripple: "ripple 1s linear",
       },
       colors: {
         primary: "hsl(221.21, 83.19%, 53.33%)",

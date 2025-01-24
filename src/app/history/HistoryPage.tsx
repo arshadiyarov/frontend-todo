@@ -4,6 +4,7 @@ import {
   Clock,
   Filter,
   Percent,
+  Search,
 } from "lucide-react";
 import { Fragment } from "react/jsx-runtime";
 import { HistoryItem } from "../../entities/history/ui/HistoryItem";
@@ -61,9 +62,13 @@ export const HistoryPage = () => {
       </div>
 
       <div className="flex items-center justify-between gap-5">
-        <form>
-          <Input placeholder="Search..." />
-        </form>
+        <div className="relative">
+          <Search
+            size={20}
+            className="stroke-typo-secondary absolute top-1/2 left-3 -translate-y-1/2"
+          />
+          <Input placeholder="Search..." className="px-10" />
+        </div>
         <div className="flex items-center gap-3">
           <Button variant="outline">
             <ArrowDownUp />

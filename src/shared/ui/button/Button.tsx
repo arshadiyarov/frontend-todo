@@ -1,14 +1,14 @@
-import { HTMLAttributes } from "react";
+import { Slot } from "@radix-ui/react-slot";
+import { ButtonHTMLAttributes } from "react";
 import { cn } from "../../lib/utils/cn";
+import { ButtonSizeType, ButtonVariantsType } from "./button";
 import {
   buttonDefaultStyles,
   buttonSizes,
   buttonVariants,
 } from "./button.config";
-import { ButtonSizeType, ButtonVariantsType } from "./button";
-import { Slot } from "@radix-ui/react-slot";
 
-export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariantsType;
   size?: ButtonSizeType;
   asChild?: boolean;

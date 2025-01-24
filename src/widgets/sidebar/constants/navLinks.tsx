@@ -1,4 +1,4 @@
-import { History, ListTodo, Smile, Timer } from "lucide-react";
+import { Banana, History, ListTodo, Smile } from "lucide-react";
 import { NavLinkType } from "../model/NavLinkType";
 
 export const navLinks: NavLinkType[] = [
@@ -24,6 +24,6 @@ export const navLinks: NavLinkType[] = [
     id: 3,
     label: "Pomodoro",
     href: "/pomodoro",
-    icon: <Timer />,
+    icon: <Banana />,
   },
 ];

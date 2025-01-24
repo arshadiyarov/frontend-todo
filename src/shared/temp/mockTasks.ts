@@ -1,0 +1,68 @@
+import { TaskEntity } from "../../entities/task/model/task";
+
+export const mockTasks: TaskEntity[] = [
+  {
+    id: "1",
+    isCompleted: false,
+    title: "Login page",
+    dueDate: new Date(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "2",
+    isCompleted: false,
+    title: "Register page",
+    dueDate: new Date(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "3",
+    isCompleted: false,
+    title: "Reset password page",
+    dueDate: new Date(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "4",
+    isCompleted: false,
+    title: "Verification page",
+    dueDate: new Date(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "4",
+    isCompleted: true,
+    title: "Fixed header",
+    dueDate: new Date(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "4",
+    isCompleted: true,
+    title: "Fixed sidebar",
+    dueDate: new Date(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "5",
+    isCompleted: false,
+    title: "History page",
+    dueDate: new Date(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "6",
+    isCompleted: false,
+    title: "Pomodoro page",
+    dueDate: new Date(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+];

@@ -3,11 +3,12 @@ import { ButtonSizeType, ButtonVariantsType } from "./button";
 export const buttonVariants: Record<ButtonVariantsType, string> = {
   default:
     "bg-primary text-typo-foreground shadow hover:bg-primary/90 active:bg-primary/80",
-  outline: "border bg-white shadow-sm hover:bg-neutral-100 hover:text-typo",
+  outline:
+    "border bg-white shadow-sm hover:bg-neutral-50 hover:text-typo active:bg-neutral-100",
   secondary:
     "bg-secondary text-typo shadow-sm hover:bg-secondary/90 active:bg-secondary/80",
   ghost:
-    "hover:bg-neutral-100 active:bg-neutral-200 hover:text-typo focus-visible:ring-typo",
+    "hover:bg-neutral-50 active:bg-neutral-100 hover:text-typo focus-visible:ring-typo",
   link: "text-primary underline-offset-4 hover:underline",
   destructive:
     "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90 active:bg-destructive/80",

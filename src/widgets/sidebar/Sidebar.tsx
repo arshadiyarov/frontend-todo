@@ -1,42 +1,21 @@
-import { useEffect, useState } from "react";
-import { navLinks } from "./constants/navLinks";
-import { SidebarHeader } from "./ui/SidebarHeader";
-import { SidebarLinks } from "./ui/SidebarLink";
+import { useSidebar } from "../../processes/providers/sidebar/useSidebar";
 import { cn } from "../../shared/lib/utils/cn";
+import { SidebarLinks } from "./ui/SidebarLink";
 
 export const Sidebar = () => {
-  const [isExpanded, setIsExpanded] = useState<boolean>(
-    localStorage.getItem("SIDEBAR_EXPANDED") === "true"
-  );
-
-  const handleToggle = () => {
-    setIsExpanded((prevState) => !prevState);
-    localStorage.setItem("SIDEBAR_EXPANDED", String(!isExpanded));
-  };
-
-  useEffect(() => {
-    const expanded = localStorage.getItem("SIDEBAR_EXPANDED") === "true";
-    localStorage.setItem("SIDEBAR_EXPANDED", String(expanded));
-
-    setIsExpanded(expanded);
-  }, []);
+  const { isExpanded } = useSidebar();
 
   return (
     <aside
       className={cn(
-        "border-r h-screen overflow-hidden transition-all shadow-sm",
+        "border-r h-screen transition-all shadow-sm fixed bg-white z-20 mt-16 p-3 pt-10",
         {
           "w-80": isExpanded,
-          " w-[3.75rem]": !isExpanded,
+          "w-[3.75rem]": !isExpanded,
         }
       )}
     >
-      <div className="border-b p-3">
-        <SidebarHeader isExpanded={isExpanded} handleToggle={handleToggle} />
-      </div>
-      <div className="p-3">
-        <SidebarLinks links={navLinks} isExpanded={isExpanded} />
-      </div>
+      <SidebarLinks />
     </aside>
   );
 };
