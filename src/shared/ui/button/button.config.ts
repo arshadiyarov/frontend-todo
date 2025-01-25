@@ -25,6 +25,6 @@ export const buttonDefaultStyles = `
   inline-flex items-center justify-center gap-2 capitalize
   rounded-md transition-colors whitespace-nowrap 
   focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-blue-500 
-  disabled:pointer-events-none disabled:opacity-50 
+  disabled:pointer-events-none disabled:opacity-50
   [&_svg]:pointer-events-none [&_svg]:size-5 [&_svg]:shrink-0 [&_svg]:stroke-current
 `;

@@ -27,6 +27,9 @@ export default {
         destructive: "hsl(0, 84.2%, 60.2%)",
         "destructive-foreground": "hsl(210, 40%, 98%)",
       },
+      backgroundImage: {
+        "auth-right": "url('/assets/img/auth-right.png')",
+      },
     },
   },
   plugins: [],

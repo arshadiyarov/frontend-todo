@@ -6,6 +6,7 @@ import { Card } from "../../../shared/ui/card/Card";
 import { TaskEntity } from "../model/task";
 
 export const TaskCard = ({
+  id,
   isCompleted: initIsCompleted,
   title,
 }: TaskEntity) => {
@@ -24,6 +25,7 @@ export const TaskCard = ({
     >
       <div className="flex items-center gap-3">
         <Button
+          id={`todo-btn-${id}`}
           size="icon"
           variant={isCompleted ? "default" : "outline"}
           className="h-6 w-6"
