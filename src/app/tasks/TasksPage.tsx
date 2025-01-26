@@ -1,10 +1,9 @@
 import { Filter, Plus } from "lucide-react";
-import { TaskCard } from "../../entities/task/ui/TaskCard";
 import { Button } from "../../shared/ui/button/Button";
 import { Cont } from "../../shared/ui/Cont";
 import { Divide } from "../../shared/ui/divide/Divide";
 import { PageHeader } from "../../shared/ui/PageHeader";
-import { mockTasks } from "../../shared/temp/mockTasks";
+import { TasksList } from "../../widgets/tasks/TasksList";
 
 export const TasksPage = () => {
   return (
@@ -27,11 +26,7 @@ export const TasksPage = () => {
         </Button>
       </div>
 
-      <div className="flex flex-col gap-3">
-        {mockTasks.map((task) => (
-          <TaskCard key={task.id} {...task} />
-        ))}
-      </div>
+      <TasksList />
     </Cont>
   );
 };

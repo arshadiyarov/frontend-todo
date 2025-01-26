@@ -3,25 +3,25 @@ import { NavLinkType } from "../model/NavLinkType";
 
 export const navLinks: NavLinkType[] = [
   {
-    id: 0,
+    id: 1,
     label: "Welcome",
     href: "/",
     icon: <Smile />,
   },
   {
-    id: 1,
+    id: 2,
     label: "Tasks",
     href: "/tasks",
     icon: <ListTodo />,
   },
   {
-    id: 2,
+    id: 3,
     label: "History",
     href: "/history",
     icon: <History />,
   },
   {
-    id: 3,
+    id: 4,
     label: "Pomodoro",
     href: "/pomodoro",
     icon: <Banana />,

@@ -12,7 +12,7 @@ export const mockTasks: TaskEntity[] = [
   {
     id: "2",
     isCompleted: false,
-    title: "Pomodoro page",
+    title: "Strength indicator for password in register and reset pages",
     dueDate: new Date(),
     createdAt: new Date(),
     updatedAt: new Date(),
@@ -20,7 +20,15 @@ export const mockTasks: TaskEntity[] = [
   {
     id: "3",
     isCompleted: false,
-    title: "Strength indicator for password in register and reset pages",
+    title: "Модалка на всех страницах если таймер на этапе run",
+    dueDate: new Date(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "4",
+    isCompleted: false,
+    title: "Fix container for main sections",
     dueDate: new Date(),
     createdAt: new Date(),
     updatedAt: new Date(),

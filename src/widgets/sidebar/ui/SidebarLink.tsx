@@ -11,9 +11,8 @@ export const SidebarLinks = () => {
   return (
     <div className="flex flex-col gap-2">
       {navLinks.map((link) => (
-        <div className="relative group">
+        <div key={link.id} className="relative group">
           <Button
-            key={link.id}
             size={isExpanded ? "default" : "icon"}
             variant={pathname === link.href ? "default" : "ghost"}
             className={cn("gap-3 w-full", {
