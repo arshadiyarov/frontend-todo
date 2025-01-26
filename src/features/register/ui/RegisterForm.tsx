@@ -6,6 +6,7 @@ import { Input } from "../../../shared/ui/input/Input";
 
 export const RegisterForm = () => {
   const [isConfirm, setisConfirm] = useState(false);
+  const [password, setPassword] = useState("");
 
   const handleToggle = () => {
     setisConfirm((prevState) => !prevState);
@@ -43,7 +44,10 @@ export const RegisterForm = () => {
         type="password"
         autoComplete="new-password"
         placeholder="Enter a strong password"
+        passwordStrengthIndicator
         required
+        onChange={(e) => setPassword(e.target.value)}
+        value={password}
       />
       <Input
         inputSize="lg"

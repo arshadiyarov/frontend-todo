@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Button } from "../../../shared/ui/button/Button";
 import { Input } from "../../../shared/ui/input/Input";
 
 export const ResetForm = () => {
+  const [password, setPassword] = useState("");
+
   return (
     <form className="w-full flex flex-col gap-4">
       <Input
@@ -10,7 +13,10 @@ export const ResetForm = () => {
         type="password"
         autoComplete="new-password"
         placeholder="Enter a strong password"
+        passwordStrengthIndicator
         required
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
       />
       <Input
         inputSize="lg"

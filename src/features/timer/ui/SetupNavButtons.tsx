@@ -2,7 +2,7 @@ import { Button } from "../../../shared/ui/button/Button";
 import { useTimer } from "../povider/useTimer";
 
 export const SetupNavButtons = () => {
-  const { step, setStep } = useTimer();
+  const { step, setStep, resetTimer } = useTimer();
 
   return (
     <div className="flex items-center gap-3">
@@ -16,7 +16,12 @@ export const SetupNavButtons = () => {
         Back
       </Button>
       {step.count === 3 ? (
-        <Button onClick={() => setStep({ label: "run", count: 1 })}>
+        <Button
+          onClick={() => {
+            setStep({ label: "run", count: 1 });
+            resetTimer();
+          }}
+        >
           Continue
         </Button>
       ) : (

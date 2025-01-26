@@ -11,7 +11,7 @@ export const mockTasks: TaskEntity[] = [
   },
   {
     id: "2",
-    isCompleted: false,
+    isCompleted: true,
     title: "Strength indicator for password in register and reset pages",
     dueDate: new Date(),
     createdAt: new Date(),
