@@ -1,0 +1,42 @@
+import { api } from "../../../shared/api/api";
+import { DefaultRes } from "../../../shared/api/model/api";
+import {
+  CreateTaskReq,
+  DeleteTaskReq,
+  TaskEntity,
+  UpdateTaskReq,
+} from "../model/task";
+
+class TaskService {
+  async getAll() {
+    const res = await api.get<TaskEntity[]>("/tasks");
+
+    return res;
+  }
+
+  async create(req: CreateTaskReq) {
+    const { ...body } = req;
+
+    const res = await api.post<TaskEntity>("/tasks", body);
+
+    return res;
+  }
+
+  async update(req: UpdateTaskReq) {
+    const { id, ...body } = req;
+
+    const res = await api.patch<TaskEntity>(`/tasks/${id}`, body);
+
+    return res;
+  }
+
+  async delete(req: DeleteTaskReq) {
+    const { id } = req;
+
+    const res = await api.delete<DefaultRes>(`/tasks/${id}`);
+
+    return res;
+  }
+}
+
+export const taskService = new TaskService();
