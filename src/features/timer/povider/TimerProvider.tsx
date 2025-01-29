@@ -91,7 +91,7 @@ export const TimerProvider = ({ children }: PropsWithChildren) => {
   const [currentSession, setCurrentSession] = useState<number>(1);
   const [isTimerActive, setIsTimerActive] = useState<boolean>(false);
 
-  usePreventReloadWarning(step.label === "run");
+  usePreventReloadWarning(isTimerActive);
 
   const convertTimeToSeconds = (time: TimeType): number => {
     const hours = parseInt(time.hours) || 0;
@@ -221,11 +221,11 @@ export const TimerProvider = ({ children }: PropsWithChildren) => {
 
   useEffect(() => {
     saveFocusTimeToLocalStorage(focusTime);
-  }, [focusTime]);
+  }, [focusTime]); // FIX
 
   useEffect(() => {
     saveRestTimeToLocalStorage(restTime);
-  }, [restTime]);
+  }, [restTime]); // FIX
 
   useEffect(() => {
     saveSessionsToLocalStorage(sessions);

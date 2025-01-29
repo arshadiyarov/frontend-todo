@@ -58,12 +58,7 @@ const DropdownItem = ({
   const Comp = asChild ? Slot : "button";
 
   return (
-    <Comp
-      role="menuitem"
-      onClick={close}
-      className={cn("bg-red-50", className)}
-      {...props}
-    >
+    <Comp role="menuitem" onClick={close} className={cn(className)} {...props}>
       {children}
     </Comp>
   );

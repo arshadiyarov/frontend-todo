@@ -1,11 +1,6 @@
 import { PropsWithChildren, useEffect, useState } from "react";
 import { SidebarContext } from "./SidebarContext";
 
-export interface SidebarContextType {
-  isExpanded: boolean;
-  handleToggle: () => void;
-}
-
 export const SidebarProvider = ({ children }: PropsWithChildren) => {
   const [isExpanded, setIsExpanded] = useState<boolean>(
     localStorage.getItem("SIDEBAR_EXPANDED") === "true"

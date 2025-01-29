@@ -1,4 +1,6 @@
+import { LogOut } from "lucide-react";
 import { UserAvatar } from "../../entities/user/ui/UserAvatar";
+import { Button } from "../../shared/ui/button/Button";
 import {
   Dropdown,
   DropdownItem,
@@ -28,9 +30,12 @@ export const Header = () => {
           </button>
         </DropdownTrigger>
         <DropdownList>
-          <DropdownItem>hello</DropdownItem>
-          <DropdownItem>hello1</DropdownItem>
-          <DropdownItem>hello2</DropdownItem>
+          <DropdownItem asChild>
+            <Button variant="destructive">
+              <LogOut />
+              Logout
+            </Button>
+          </DropdownItem>
         </DropdownList>
       </Dropdown>
     </header>

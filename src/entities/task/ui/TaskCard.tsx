@@ -1,57 +1,51 @@
-import { Check, SquarePen, Trash2 } from "lucide-react";
 import { useState } from "react";
+import { DeleteTask } from "../../../features/task/ui/DeleteTask";
+import { EditTask } from "../../../features/task/ui/editTask/EditTask";
+import { ToggleComplete } from "../../../features/task/ui/ToggleComplete";
+import { useTasks } from "../../../processes/providers/task/useTasks";
 import { cn } from "../../../shared/lib/utils/cn";
-import { Button } from "../../../shared/ui/button/Button";
 import { Card } from "../../../shared/ui/card/Card";
 import { TaskEntity } from "../model/task";
 
-export const TaskCard = ({
-  id,
-  isCompleted: initIsCompleted,
-  title,
-}: TaskEntity) => {
-  const [isCompleted, setIsCompleted] = useState(initIsCompleted);
+export const TaskCard = ({ id, isCompleted, title }: TaskEntity) => {
+  const { toggleCompletion } = useTasks();
+  const [completed, setCompleted] = useState(isCompleted);
 
-  const handleToggle = () => {
-    setIsCompleted((prevState) => !prevState);
+  const handleToggle = async () => {
+    setCompleted((prevState) => !prevState);
+
+    try {
+      await toggleCompletion(id);
+    } catch (e) {
+      console.error("Failed to toggle completion:\n", e);
+      setCompleted((prevState) => !prevState);
+    }
   };
 
   return (
     <Card
       size="sm"
       className={cn("flex items-center justify-between transition-all", {
-        "bg-neutral-50 opacity-70": isCompleted,
+        "bg-neutral-50 [&>*]:opacity-70": completed,
       })}
     >
       <div className="flex items-center gap-3">
-        <Button
-          id={`todo-btn-${id}`}
-          size="icon"
-          variant={isCompleted ? "default" : "outline"}
-          className="h-6 w-6"
-          onClick={handleToggle}
-        >
-          <Check
-            className={cn("opacity-0 transition-all text-white", {
-              "opacity-100": isCompleted,
-            })}
-          />
-        </Button>
+        <ToggleComplete
+          id={id}
+          isCompleted={completed}
+          handleToggle={handleToggle}
+        />
         <div
           className={cn("", {
-            "line-through": isCompleted,
+            "line-through": completed,
           })}
         >
           {title}
         </div>
       </div>
       <div className="flex items-center gap-3">
-        <Button variant="outline" size="icon">
-          <SquarePen />
-        </Button>
-        <Button variant="destructive" size="icon">
-          <Trash2 />
-        </Button>
+        <EditTask id={id} title={title} />
+        <DeleteTask id={id} />
       </div>
     </Card>
   );

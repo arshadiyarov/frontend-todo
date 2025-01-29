@@ -1,36 +1,46 @@
-import { useEffect, useState } from "react";
+import { FolderOpen, RotateCw } from "lucide-react";
 import { TaskCard } from "../../entities/task/ui/TaskCard";
-import { TaskEntity } from "../../entities/task/model/task";
-import { taskService } from "../../entities/task/api/task.service";
+import { useTasks } from "../../processes/providers/task/useTasks";
+import { Button } from "../../shared/ui/button/Button";
+import { Loader } from "../../shared/ui/Loader";
 
 export const TasksList = () => {
-  const [tasks, setTasks] = useState<TaskEntity[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const { tasks, isTasksLoading, error, refetch } = useTasks();
 
-  useEffect(() => {
-    setIsLoading(true);
-    const getTasks = async () => {
-      try {
-        const res = await taskService.getAll();
+  if (isTasksLoading) {
+    return (
+      <div className="flex items-center justify-center">
+        <Loader size="lg" />
+      </div>
+    );
+  }
 
-        if (res.status === 200 || res.status === 201) setTasks(res.data);
-      } catch (e) {
-        console.error("Failed to fetch all tasks:\n", e);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+  if (error !== null) {
+    return (
+      <div className="flex flex-col items-center justify-center gap-3 text-center">
+        <div className="text-3xl font-medium text-red-500">{error}</div>
+        <Button variant="outline" onClick={refetch} className="group">
+          <RotateCw className="group-hover:animate-spin" />
+          Try Again
+        </Button>
+      </div>
+    );
+  }
 
-    getTasks();
-  }, []);
+  if (!tasks.length) {
+    return (
+      <div className="flex items-center justify-center gap-1 text-3xl">
+        <FolderOpen size={48} />
+        No pending tasks
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col gap-3">
-      {isLoading ? (
-        <div>Loading...</div>
-      ) : (
-        tasks.map((task) => <TaskCard key={task.id} {...task} />)
-      )}
+      {tasks.map((task) => (
+        <TaskCard key={task.id} {...task} />
+      ))}
     </div>
   );
 };

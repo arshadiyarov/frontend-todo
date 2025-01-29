@@ -119,6 +119,7 @@ export const Input = ({
         <input
           className={cn(inputDefaultStyles, inputSizes[inputSize], className)}
           required={required}
+          value={value}
           {...props}
         />
       )}

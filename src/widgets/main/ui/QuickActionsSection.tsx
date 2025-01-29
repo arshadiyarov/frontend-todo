@@ -1,8 +1,9 @@
-import { ListTodo, Plus } from "lucide-react";
+import { ListTodo } from "lucide-react";
+import { Link } from "react-router";
+import { AddTask } from "../../../features/task/ui/addTask/AddTask";
 import { Button } from "../../../shared/ui/button/Button";
 import { Card } from "../../../shared/ui/card/Card";
 import { CardHeader } from "../../../shared/ui/card/ui/CardHeader";
-import { Link } from "react-router";
 
 export const QuickActionsSection = () => {
   return (
@@ -12,11 +13,7 @@ export const QuickActionsSection = () => {
         subTitle="Get started with these common tasks"
       />
       <div className="w-full flex flex-col gap-3">
-        <Button variant="outline" className="justify-start">
-          {/* TODO: Route to tasks page or open modal in main page */}
-          <Plus />
-          Create new task
-        </Button>
+        <AddTask variant="outline" className="justify-start" />
         <Button variant="outline" className="justify-start" asChild>
           <Link to="/tasks">
             <ListTodo />
