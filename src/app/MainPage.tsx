@@ -1,6 +1,6 @@
 import { getGreeting } from "../shared/lib/utils/getGreeting";
 import { Cont } from "../shared/ui/Cont";
-import { PageHeader } from "../shared/ui/PageHeader";
+import { PageHeader } from "../shared/ui/pageHeader/PageHeader";
 import { MainStatsSection } from "../widgets/main/ui/MainStatsSection";
 import { QuickActionsSection } from "../widgets/main/ui/QuickActionsSection";
 import { RecentHistorySection } from "../widgets/main/ui/RecentHistorySection";

@@ -3,7 +3,7 @@ import { useTimer } from "../../features/timer/povider/useTimer";
 import { Button } from "../../shared/ui/button/Button";
 import { Cont } from "../../shared/ui/Cont";
 import { Divide } from "../../shared/ui/divide/Divide";
-import { PageHeader } from "../../shared/ui/PageHeader";
+import { PageHeader } from "../../shared/ui/pageHeader/PageHeader";
 import { StepInit } from "../../widgets/pomodoro/ui/StepInit";
 import { StepRun } from "../../widgets/pomodoro/ui/StepRun";
 import { TasksList } from "../../widgets/tasks/TasksList";

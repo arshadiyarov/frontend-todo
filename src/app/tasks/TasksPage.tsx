@@ -1,7 +1,7 @@
 import { SearchTask } from "../../features/task/ui/SearchTask";
 import { Cont } from "../../shared/ui/Cont";
 import { Divide } from "../../shared/ui/divide/Divide";
-import { PageHeader } from "../../shared/ui/PageHeader";
+import { PageHeader } from "../../shared/ui/pageHeader/PageHeader";
 import { TasksControlButtons } from "../../widgets/tasks/TasksControlButtons";
 import { TasksList } from "../../widgets/tasks/TasksList";
 

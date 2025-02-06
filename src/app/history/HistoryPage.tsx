@@ -13,7 +13,7 @@ import { Button } from "../../shared/ui/button/Button";
 import { Card } from "../../shared/ui/card/Card";
 import { Cont } from "../../shared/ui/Cont";
 import { Divide } from "../../shared/ui/divide/Divide";
-import { PageHeader } from "../../shared/ui/PageHeader";
+import { PageHeader } from "../../shared/ui/pageHeader/PageHeader";
 
 export const HistoryPage = () => {
   return (
