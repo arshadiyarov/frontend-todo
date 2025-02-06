@@ -1,8 +1,10 @@
 import { Slot } from "@radix-ui/react-slot";
 import {
   ButtonHTMLAttributes,
+  Dispatch,
   HTMLAttributes,
   PropsWithChildren,
+  SetStateAction,
   useEffect,
   useRef,
 } from "react";
@@ -10,9 +12,14 @@ import { cn } from "../../../lib/utils/cn";
 import { DropdonwProvider } from "../provider/DropdownProvider";
 import { useDropdown } from "../provider/useDropdown";
 
-const Dropdown = ({ children }: PropsWithChildren) => {
+interface DropdownProps extends PropsWithChildren {
+  isOpen?: boolean;
+  setIsOpen?: Dispatch<SetStateAction<boolean>>;
+}
+
+const Dropdown = ({ children, isOpen, setIsOpen }: DropdownProps) => {
   return (
-    <DropdonwProvider>
+    <DropdonwProvider isOpen={isOpen} setIsOpen={setIsOpen}>
       <div className="relative">{children}</div>
     </DropdonwProvider>
   );
@@ -111,4 +118,4 @@ const DropdownList = ({
   );
 };
 
-export { Dropdown, DropdownTrigger, DropdownList, DropdownItem };
+export { Dropdown, DropdownItem, DropdownList, DropdownTrigger };

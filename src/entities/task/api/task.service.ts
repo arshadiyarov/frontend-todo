@@ -3,13 +3,22 @@ import { DefaultRes } from "../../../shared/api/model/api";
 import {
   CreateTaskReq,
   DeleteTaskReq,
+  StatusType,
   TaskEntity,
   UpdateTaskReq,
 } from "../model/task";
 
 class TaskService {
-  async getAll(search?: string) {
-    const res = await api.get<TaskEntity[]>(`/tasks?search=${search}`);
+  async getAll({
+    status = "",
+    search = "",
+  }: {
+    status?: StatusType | "";
+    search?: string;
+  }) {
+    const res = await api.get<TaskEntity[]>(
+      `/tasks?search=${search}&status=${status}`
+    );
 
     return res;
   }

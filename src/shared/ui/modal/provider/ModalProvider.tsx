@@ -9,23 +9,23 @@ interface ModalProviderProps extends PropsWithChildren {
 export const ModalProvider = ({
   children,
   isOpen: externalIsOpen,
-  setIsOpen: setExternalIsOpen,
+  setIsOpen: externalSetIsOpen,
 }: ModalProviderProps) => {
   const [internalIsOpen, setInternalIsOpen] = useState(false);
 
   const isOpen = externalIsOpen ?? internalIsOpen;
 
   const toggle = () => {
-    if (setExternalIsOpen) {
-      setExternalIsOpen(!isOpen);
+    if (externalSetIsOpen) {
+      externalSetIsOpen(!isOpen);
     } else {
       setInternalIsOpen(!isOpen);
     }
   };
 
   const close = () => {
-    if (setExternalIsOpen) {
-      setExternalIsOpen(false);
+    if (externalSetIsOpen) {
+      externalSetIsOpen(false);
     } else {
       setInternalIsOpen(false);
     }

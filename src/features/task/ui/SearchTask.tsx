@@ -1,15 +1,15 @@
 import { Search, X } from "lucide-react";
-import { Input } from "../../../shared/ui/input/Input";
-import { cn } from "../../../shared/lib/utils/cn";
-import { useTasks } from "../../../processes/providers/task/useTasks";
 import { ChangeEvent, useEffect, useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
+import { useTasks } from "../../../processes/providers/task/useTasks";
+import { cn } from "../../../shared/lib/utils/cn";
+import { Input } from "../../../shared/ui/input/Input";
 
 export const SearchTask = () => {
   const { refetch } = useTasks();
   const [searchValue, setSearchValue] = useState("");
 
-  const debounced = useDebouncedCallback((value) => {
+  const debouncedSearch = useDebouncedCallback((value) => {
     refetch(value);
   }, 300);
 
@@ -18,7 +18,7 @@ export const SearchTask = () => {
   };
 
   useEffect(() => {
-    debounced(searchValue);
+    debouncedSearch(searchValue);
   }, [searchValue]);
 
   return (

@@ -1,7 +1,7 @@
 import { AxiosError } from "axios";
 import { PropsWithChildren, useEffect, useState } from "react";
 import { taskService } from "../../../entities/task/api/task.service";
-import { TaskEntity } from "../../../entities/task/model/task";
+import { StatusType, TaskEntity } from "../../../entities/task/model/task";
 import { TasksContext } from "./TasksContext";
 
 export const TasksProvider = ({ children }: PropsWithChildren) => {
@@ -9,12 +9,12 @@ export const TasksProvider = ({ children }: PropsWithChildren) => {
   const [isTasksLoading, setIsTasksLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const getTasks = async (search: string = "") => {
+  const getTasks = async (search?: string, status?: StatusType) => {
     setIsTasksLoading(true);
     setError(null);
 
     try {
-      const res = await taskService.getAll(search);
+      const res = await taskService.getAll({ search, status });
       setTasks(res.data);
     } catch (e) {
       if (e instanceof AxiosError) {
@@ -42,9 +42,13 @@ export const TasksProvider = ({ children }: PropsWithChildren) => {
     }
   };
 
-  const updateTask = async (id: number, title: string) => {
+  const updateTask = async (
+    id: number,
+    title?: string,
+    status?: StatusType
+  ) => {
     try {
-      const res = await taskService.update({ id, title });
+      const res = await taskService.update({ id, title, status });
 
       setTasks((prevState) => {
         const index = prevState.findIndex((task) => task.id === id);

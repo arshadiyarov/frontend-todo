@@ -4,7 +4,7 @@ export interface TaskEntity extends Timestamps {
   id: number;
   title: string;
   isCompleted: boolean;
-  // dueDate: Date;
+  status: StatusType;
 }
 
 // Create task
@@ -17,9 +17,12 @@ export interface UpdateTaskReq {
   id: number;
   title?: string;
   isCompleted?: boolean;
+  status?: StatusType;
 }
 
 // Delete task
 export interface DeleteTaskReq {
   id: number;
 }
+
+export type StatusType = "notStarted" | "inProgress" | "completed";

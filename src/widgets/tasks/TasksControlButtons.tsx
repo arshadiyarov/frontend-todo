@@ -1,15 +1,11 @@
-import { Filter } from "lucide-react";
 import { AddTask } from "../../features/task/ui/addTask/AddTask";
-import { Button } from "../../shared/ui/button/Button";
+import { FilterStatus } from "../../features/task/ui/FilterStatus";
 
 export const TasksControlButtons = () => {
   return (
     <div className="flex items-center gap-3">
+      <FilterStatus />
       <AddTask />
-      <Button variant="outline">
-        <Filter />
-        Filter
-      </Button>
     </div>
   );
 };
