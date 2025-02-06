@@ -19,7 +19,7 @@ export const TasksList = () => {
     return (
       <div className="flex flex-col items-center justify-center gap-3 text-center">
         <div className="text-3xl font-medium text-red-500">{error}</div>
-        <Button variant="outline" onClick={refetch} className="group">
+        <Button variant="outline" onClick={() => refetch("")} className="group">
           <RotateCw className="group-hover:animate-spin" />
           Try Again
         </Button>
@@ -31,7 +31,7 @@ export const TasksList = () => {
     return (
       <div className="flex items-center justify-center gap-1 text-3xl">
         <FolderOpen size={48} />
-        No pending tasks
+        No tasks found
       </div>
     );
   }

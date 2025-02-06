@@ -4,28 +4,18 @@ import {
   Clock,
   Filter,
   Percent,
-  Search,
-  X,
 } from "lucide-react";
 import { Fragment } from "react/jsx-runtime";
 import { HistoryItem } from "../../entities/history/ui/HistoryItem";
+import { SearchTask } from "../../features/task/ui/SearchTask";
 import { mockHistory } from "../../shared/temp/mockHistory";
+import { Button } from "../../shared/ui/button/Button";
 import { Card } from "../../shared/ui/card/Card";
 import { Cont } from "../../shared/ui/Cont";
-import { PageHeader } from "../../shared/ui/PageHeader";
 import { Divide } from "../../shared/ui/divide/Divide";
-import { Button } from "../../shared/ui/button/Button";
-import { Input } from "../../shared/ui/input/Input";
-import { ChangeEvent, useState } from "react";
-import { cn } from "../../shared/lib/utils/cn";
+import { PageHeader } from "../../shared/ui/PageHeader";
 
 export const HistoryPage = () => {
-  const [searchValue, setSearchValue] = useState("");
-
-  const handleValueChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(e.target.value);
-  };
-
   return (
     <Cont className="py-10 space-y-10">
       <PageHeader
@@ -71,39 +61,7 @@ export const HistoryPage = () => {
       </div>
 
       <div className="flex items-center justify-between gap-5">
-        <div className="relative">
-          <Search
-            size={20}
-            className="stroke-typo-secondary absolute top-1/2 left-3 -translate-y-1/2"
-          />
-          <Input
-            placeholder="Search..."
-            value={searchValue}
-            onChange={handleValueChange}
-            className="pl-10 pr-9"
-          />
-          <button
-            type="button"
-            className={cn(
-              "absolute top-1/2 right-0 -translate-y-1/2 group p-2.5 opacity-0 transition-all",
-              "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-red-500",
-              "rounded-r-md pointer-events-none",
-              {
-                "opacity-100 pointer-events-auto": searchValue.length > 0,
-              }
-            )}
-            onClick={() => setSearchValue("")}
-          >
-            <X
-              size={14}
-              className={cn(
-                "stroke-typo-secondary transition-all",
-                "group-hover:stroke-red-500 group-hover:scale-125",
-                "group-focus-within:stroke-red-500 group-focus-within:scale-125"
-              )}
-            />
-          </button>
-        </div>
+        <SearchTask />
         <div className="flex items-center gap-3">
           <Button variant="outline">
             <ArrowDownUp />

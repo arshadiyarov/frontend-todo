@@ -19,6 +19,7 @@ export const AddTaskForm = ({ close }: AddTaskFormProps) => {
 
     try {
       await createTask(title);
+      setTitle("");
       close();
     } catch (e) {
       console.error("Can't create task:\n", e);

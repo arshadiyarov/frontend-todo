@@ -9,12 +9,12 @@ export const TasksProvider = ({ children }: PropsWithChildren) => {
   const [isTasksLoading, setIsTasksLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const getTasks = async () => {
+  const getTasks = async (search: string = "") => {
     setIsTasksLoading(true);
     setError(null);
 
     try {
-      const res = await taskService.getAll();
+      const res = await taskService.getAll(search);
       setTasks(res.data);
     } catch (e) {
       if (e instanceof AxiosError) {

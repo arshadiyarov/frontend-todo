@@ -8,8 +8,8 @@ import {
 } from "../model/task";
 
 class TaskService {
-  async getAll() {
-    const res = await api.get<TaskEntity[]>("/tasks");
+  async getAll(search?: string) {
+    const res = await api.get<TaskEntity[]>(`/tasks?search=${search}`);
 
     return res;
   }
