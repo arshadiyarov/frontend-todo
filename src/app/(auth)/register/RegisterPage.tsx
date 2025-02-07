@@ -8,7 +8,7 @@ export const RegisterPage = () => {
   return (
     <div className="flex flex-col items-center gap-8">
       <AuthHeader
-        icon={<UserRound className="stroke-typo" />}
+        icon={<UserRound className="stroke-typo dark:stroke-dark-typo" />}
         title="Registration"
         subTitle="Join us today! Create an account to get started."
       />

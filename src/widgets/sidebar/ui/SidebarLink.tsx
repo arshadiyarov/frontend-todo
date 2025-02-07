@@ -32,9 +32,9 @@ export const SidebarLinks = () => {
                 "group-hover:scale-100 group-hover:opacity-100 transition-all delay-300"
               )}
             >
-              <div className="relative bg-neutral-400 py-1 px-2 rounded-md text-sm text-white">
+              <div className="relative bg-neutral-400 dark:bg-neutral-600 py-1 px-2 rounded-md text-sm text-white">
                 {link.label}
-                <div className="absolute -left-1 top-1/2 -translate-y-1/2 w-2 h-2 bg-neutral-400 rotate-45" />
+                <div className="absolute -left-1 top-1/2 -translate-y-1/2 w-2 h-2 bg-neutral-400 dark:bg-neutral-600 rotate-45" />
               </div>
             </div>
           )}

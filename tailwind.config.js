@@ -26,11 +26,18 @@ export default {
         "typo-foreground": "hsl(0, 0%, 98.04%)",
         destructive: "hsl(0, 84.2%, 60.2%)",
         "destructive-foreground": "hsl(210, 40%, 98%)",
+        "dark-typo": "hsl(0, 0%, 100%)",
+      },
+      backgroundColor: {
+        light: "hsl(0, 0%, 100%)",
+        dark: "hsl(222.2, 84%, 4.9%)",
       },
       backgroundImage: {
         "auth-right": "url('/assets/img/auth-right.png')",
+        "auth-right-dark": "url('/assets/img/auth-right-dark.png')",
       },
     },
   },
+  darkMode: "class",
   plugins: [],
 };

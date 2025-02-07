@@ -9,7 +9,7 @@ interface AuthHeaderProps {
 export const AuthHeader = ({ icon, title, subTitle }: AuthHeaderProps) => {
   return (
     <div className="flex flex-col items-center gap-5">
-      <div className="border w-fit rounded-lg p-3 flex items-center justify-center shadow-sm animate-float-slow">
+      <div className="border dark:border-gray-700 w-fit rounded-lg p-3 flex items-center justify-center shadow-sm animate-float-slow">
         {icon}
       </div>
       <div className="flex flex-col items-center gap-2">

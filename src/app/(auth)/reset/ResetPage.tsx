@@ -7,7 +7,9 @@ export const ResetPage = () => {
   return (
     <div className="flex flex-col items-center gap-8">
       <AuthHeader
-        icon={<RectangleEllipsis className="stroke-typo" />}
+        icon={
+          <RectangleEllipsis className="stroke-typo dark:stroke-dark-typo" />
+        }
         title="Set new password"
         subTitle="Must be at least 8 characters."
       />

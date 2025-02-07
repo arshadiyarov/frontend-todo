@@ -19,13 +19,13 @@ export const TutorialStep = ({
       >
         <div className="flex items-center gap-3">
           <BgCircle
-            className={cn("bg-gray-100", {
-              "bg-green-100": isCompleted,
+            className={cn("bg-gray-100 dark:bg-gray-700", {
+              "bg-green-100 dark:bg-green-800": isCompleted,
             })}
           >
             <CircleCheck
               className={cn("transition-colors text-gray-400", {
-                "text-green-500": isCompleted,
+                "text-green-500 dark:text-green-500": isCompleted,
               })}
             />
           </BgCircle>

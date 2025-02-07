@@ -7,4 +7,4 @@ export const cardSizes: Record<CardSizeType, string> = {
 };
 
 export const cardDefaultStyles =
-  "rounded-xl border bg-white text-typo shadow-sm";
+  "rounded-xl border dark:border-gray-700 bg-light dark:bg-dark text-typo dark:text-dark-typo shadow-sm";

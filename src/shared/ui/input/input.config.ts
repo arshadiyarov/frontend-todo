@@ -7,7 +7,8 @@ export const inputSizes: Record<InputSizeType, string> = {
 };
 
 export const inputDefaultStyles = `
-  w-full border rounded-md transition-colors whitespace-nowrap
+  w-full border dark:border-gray-700 rounded-md transition-colors whitespace-nowrap
+  bg-light dark:bg-dark
   focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-blue-500
   disabled:pointer-events-none disabled:opacity-50
 `;

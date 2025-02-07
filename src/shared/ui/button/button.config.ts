@@ -4,11 +4,11 @@ export const buttonVariants: Record<ButtonVariantsType, string> = {
   default:
     "bg-primary text-typo-foreground shadow hover:bg-primary/90 active:bg-primary/80",
   outline:
-    "border bg-white shadow-sm hover:bg-neutral-50 hover:text-typo active:bg-neutral-100",
+    "border dark:border-gray-700 bg-light dark:bg-dark shadow-sm hover:bg-neutral-50 dark:hover:bg-gray-900 hover:text-typo dark:hover:text-dark-typo active:bg-neutral-100 dark:active:bg-gray-800",
   secondary:
     "bg-secondary text-typo shadow-sm hover:bg-secondary/90 active:bg-secondary/80",
   ghost:
-    "hover:bg-neutral-50 active:bg-neutral-100 hover:text-typo focus-visible:ring-typo",
+    "hover:bg-neutral-50 dark:hover:bg-gray-800 active:bg-neutral-100 dark:active:bg-gray-700 hover:text-typo dark:hover:text-dark-typo focus-visible:ring-typo",
   link: "text-primary underline-offset-4 hover:underline",
   destructive:
     "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90 active:bg-destructive/80",

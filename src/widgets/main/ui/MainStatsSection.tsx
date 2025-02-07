@@ -27,12 +27,12 @@ export const MainStatsSection = () => {
               // TODO: Refactor
               style={{ width: `${barWidth}%` }}
               className={cn(
-                "relative z-10 bg-primary h-4 rounded-l-xl transition-all duration-300"
+                "relative z-10 bg-primary h-4 rounded-l-xl transition-all"
               )}
             />
             <div
               className={cn(
-                "absolute bg-neutral-100 h-4 rounded-xl w-full transition-all duration-300"
+                "absolute bg-neutral-100 h-4 rounded-xl w-full transition-all"
               )}
             />
           </div>

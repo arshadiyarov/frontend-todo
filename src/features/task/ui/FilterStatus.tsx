@@ -1,4 +1,4 @@
-import { Filter } from "lucide-react";
+import { Check, Filter } from "lucide-react";
 import { useState } from "react";
 import { StatusType } from "../../../entities/task/model/task";
 import { useTasks } from "../../../processes/providers/task/useTasks";
@@ -44,8 +44,10 @@ export const FilterStatus = () => {
             <Button
               variant={status.id === activeStatus ? "default" : "outline"}
               onClick={() => handleClick(status.id)}
+              className="justify-between"
             >
               {status.label}
+              {status.id === activeStatus && <Check />}
             </Button>
           </DropdownItem>
         ))}

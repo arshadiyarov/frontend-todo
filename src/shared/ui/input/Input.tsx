@@ -16,24 +16,36 @@ const StrengthBar = ({ val }: { val: number }) => {
   return (
     <div className="flex w-full items-center justify-between gap-3">
       <div
-        className={cn("rounded-md w-full h-2 bg-gray-200", {
-          "bg-red-500": val > 0,
-        })}
+        className={cn(
+          "rounded-md w-full h-2 bg-gray-200 dark:bg-gray-500 transition-all",
+          {
+            "bg-red-500 dark:bg-red-500": val > 0,
+          }
+        )}
       />
       <div
-        className={cn("rounded-md w-full h-2 bg-gray-200", {
-          "bg-orange-500": val > 1,
-        })}
+        className={cn(
+          "rounded-md w-full h-2 bg-gray-200 dark:bg-gray-500 transition-all",
+          {
+            "bg-orange-500 dark:bg-orange-500": val > 1,
+          }
+        )}
       />
       <div
-        className={cn("rounded-md w-full h-2 bg-gray-200", {
-          "bg-yellow-500": val > 2,
-        })}
+        className={cn(
+          "rounded-md w-full h-2 bg-gray-200 dark:bg-gray-500 transition-all",
+          {
+            "bg-yellow-500 dark:bg-yellow-500": val > 2,
+          }
+        )}
       />
       <div
-        className={cn("rounded-md w-full h-2 bg-gray-200", {
-          "bg-green-500": val > 3,
-        })}
+        className={cn(
+          "rounded-md w-full h-2 bg-gray-200 dark:bg-gray-500 transition-all",
+          {
+            "bg-green-500 dark:bg-green-500": val > 3,
+          }
+        )}
       />
     </div>
   );

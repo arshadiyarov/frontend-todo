@@ -7,7 +7,7 @@ export const RestorePage = () => {
   return (
     <div className="flex flex-col items-center gap-8">
       <AuthHeader
-        icon={<Fingerprint className="stroke-typo" />}
+        icon={<Fingerprint className="stroke-typo dark:stroke-dark-typo" />}
         title="Forgot password?"
         subTitle="No worries, we'll send you reset instructions."
       />

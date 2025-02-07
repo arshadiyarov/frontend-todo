@@ -11,7 +11,7 @@ export const StepRun = () => {
       {step.count === 1 && (
         <div className="flex flex-col items-center uppercase gap-4">
           <div className="border rounded-md p-4 shadow-sm">
-            <Brain size={32} className="text-typo" />
+            <Brain size={32} className="text-typo dark:text-dark-typo" />
           </div>
           <div className="text-3xl flex items-center gap-2">
             <h2>Focus</h2>
@@ -24,7 +24,7 @@ export const StepRun = () => {
       {step.count === 2 && (
         <div className="flex flex-col items-center uppercase gap-4">
           <div className="border rounded-md p-4 shadow-sm">
-            <Leaf size={32} className="text-typo" />
+            <Leaf size={32} className="text-typo dark:text-dark-typo" />
           </div>
           <div className="text-3xl flex items-center gap-2">
             <h2>Rest</h2>

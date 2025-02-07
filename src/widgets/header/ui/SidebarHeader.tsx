@@ -1,8 +1,8 @@
-import { Link } from "react-router";
-import { Button } from "../../shared/ui/button/Button";
 import { ChevronsLeft } from "lucide-react";
-import { cn } from "../../shared/lib/utils/cn";
-import { useSidebar } from "../../processes/providers/sidebar/useSidebar";
+import { Link } from "react-router";
+import { useSidebar } from "../../../processes/providers/sidebar/useSidebar";
+import { cn } from "../../../shared/lib/utils/cn";
+import { Button } from "../../../shared/ui/button/Button";
 
 export const SidebarHeader = () => {
   const { isExpanded, handleToggle } = useSidebar();

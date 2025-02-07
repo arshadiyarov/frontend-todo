@@ -6,9 +6,9 @@ import { Button } from "../../../shared/ui/button/Button";
 
 export const LoginPage = () => {
   return (
-    <div className="flex flex-col items-center gap-8">
+    <div className="flex flex-col items-center gap-8 bg-light dark:bg-dark">
       <AuthHeader
-        icon={<KeyRound className="stroke-typo" />}
+        icon={<KeyRound className="stroke-typo dark:stroke-dark-typo" />}
         title="Authorization"
         subTitle="Welcome back! Please log in to continue."
       />

@@ -104,7 +104,7 @@ const DropdownList = ({
       ref={ref}
       role="menu"
       className={cn(
-        "bg-white absolute top-12 flex flex-col gap-1 border rounded-md shadow-sm p-2 w-60",
+        "bg-light dark:bg-dark absolute top-12 flex flex-col gap-1 border dark:border-gray-700 rounded-md shadow-sm p-2 w-60",
         "opacity-0 transition-all",
         {
           "opacity-100": isOpen,

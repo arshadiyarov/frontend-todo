@@ -14,6 +14,7 @@ import {
 } from "../../../shared/ui/dropdown/ui/Dropdown";
 import { Button } from "../../../shared/ui/button/Button";
 import { statuses } from "../../../shared/temp/mockStatuses";
+import { Check, ChevronDown } from "lucide-react";
 
 export const TaskCard = ({ id, isCompleted, title, status }: TaskEntity) => {
   const { toggleCompletion, updateTask } = useTasks();
@@ -64,6 +65,11 @@ export const TaskCard = ({ id, isCompleted, title, status }: TaskEntity) => {
           <DropdownTrigger asChild>
             <Button variant="outline" className="flex items-center gap-3">
               {statuses.find((status) => status.id === activeStatus)?.label}
+              <ChevronDown
+                className={cn("transition-all", {
+                  "rotate-180": open,
+                })}
+              />
             </Button>
           </DropdownTrigger>
           <DropdownList className="z-20">
@@ -72,8 +78,10 @@ export const TaskCard = ({ id, isCompleted, title, status }: TaskEntity) => {
                 <Button
                   variant={status.id === activeStatus ? "default" : "outline"}
                   onClick={() => handleClick(status.id)}
+                  className="justify-between"
                 >
                   {status.label}
+                  {status.id === activeStatus && <Check />}
                 </Button>
               </DropdownItem>
             ))}
