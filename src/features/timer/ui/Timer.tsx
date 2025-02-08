@@ -1,10 +1,9 @@
+import { Component } from "react";
 import { Colon } from "../../../shared/ui/Colon";
-import { useTimer } from "../povider/useTimer";
+import { TimerContext } from "../povider/TimerContext";
 
-export const Timer = () => {
-  const { remainingTime } = useTimer();
-
-  const formatTime = (totalSeconds: number) => {
+class Timer extends Component {
+  formatTime(totalSeconds: number) {
     const hours = Math.floor(totalSeconds / 3600)
       .toString()
       .padStart(2, "0");
@@ -14,27 +13,42 @@ export const Timer = () => {
     const seconds = (totalSeconds % 60).toString().padStart(2, "0");
 
     return { hours, minutes, seconds };
-  };
+  }
 
-  const currentTime = formatTime(remainingTime);
+  render() {
+    return (
+      <TimerContext.Consumer>
+        {(context) => {
+          if (!context) {
+            return <div>Error: TimerContext is not available</div>;
+          }
 
-  return (
-    <div className="flex items-center justify-center text-center">
-      <div className="w-32">
-        <div className="w-full text-center text-7xl">{currentTime.hours}</div>
-      </div>
+          const { remainingTime } = context;
+          const { hours, minutes, seconds } = this.formatTime(remainingTime);
 
-      <Colon />
+          return (
+            <div className="flex items-center justify-center text-center">
+              <div className="w-32">
+                <div className="w-full text-center text-7xl">{hours}</div>
+              </div>
 
-      <div className="w-32">
-        <div className="w-full text-center text-7xl">{currentTime.minutes}</div>
-      </div>
+              <Colon />
 
-      <Colon />
+              <div className="w-32">
+                <div className="w-full text-center text-7xl">{minutes}</div>
+              </div>
 
-      <div className="w-32">
-        <div className="w-full text-center text-7xl">{currentTime.seconds}</div>
-      </div>
-    </div>
-  );
-};
+              <Colon />
+
+              <div className="w-32">
+                <div className="w-full text-center text-7xl">{seconds}</div>
+              </div>
+            </div>
+          );
+        }}
+      </TimerContext.Consumer>
+    );
+  }
+}
+
+export default Timer;

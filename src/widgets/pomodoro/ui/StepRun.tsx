@@ -1,7 +1,7 @@
 import { Brain, Leaf } from "lucide-react";
 import { RunControlButtons } from "../../../features/timer/ui/RunControlButtons";
-import { Timer } from "../../../features/timer/ui/Timer";
 import { useTimer } from "../../../features/timer/povider/useTimer";
+import Timer from "../../../features/timer/ui/Timer";
 
 export const StepRun = () => {
   const { step, currentSession, sessions } = useTimer();
